@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recruiter Dashboard</title>
+  <link rel="stylesheet" href="ATS.css">
+  
+</head>
+<div class="nav">
+    <p><a href="ATS.html">Home</a></p>
+    <p><a href="candidate.html">Candidate</a></p>
+    <p><a href="coordinator.html">Coordinator</a></p>
+    <p><a href="recruiter.html">Recruiter</a></p>
+    <p><a href="employer.html">Employer</a></p>
+
+</div>
+<body>
+  <div class="container">
+    <h1>Recruiter Dashboard</h1>
+    <div id="application">
+      <!-- Application details will be dynamically filled here -->
+    </div>
+    <form id="r2CheckForm">
+      <label for="comments">Comments:</label><br>
+      <textarea id="comments" name="comments" rows="4" cols="50"></textarea><br><br>
+      <button type="submit">Submit R2 Check</button>
+    </form>
+    <div id="statusMessage"></div>
+    <button id="shortlistButton" onclick="shortlistCandidate()">Shortlist Candidate</button>
+  </div>
+
+
+
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  margin-top: 20px;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#statusMessage {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+  </style>
+  <script>
+    // Sample data for demonstration
+const candidates = [
+  { name: "John Doe", position: "Software Developer", experience: "3 years" },
+  { name: "Jane Smith", position: "Data Analyst", experience: "2 years" },
+  { name: "Michael Johnson", position: "UX Designer", experience: "4 years" }
+];
+
+let currentCandidateIndex = 0;
+
+// Function to load the next candidate's application details
+function loadNextCandidate() {
+  const candidate = candidates[currentCandidateIndex];
+  const applicationDiv = document.getElementById('application');
+  applicationDiv.innerHTML = `
+    <h2>${candidate.name}</h2>
+    <p><strong>Position:</strong> ${candidate.position}</p>
+    <p><strong>Experience:</strong> ${candidate.experience}</p>
+  `;
+}
+
+// Function to handle form submission for R2 check
+document.getElementById('r2CheckForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const comments = document.getElementById('comments').value;
+  // Simulate submitting the form (in real scenario, you would send this data to a server)
+  console.log('Submitting R2 check form with comments:', comments);
+  document.getElementById('statusMessage').textContent = "R2 check submitted successfully.";
+});
+
+// Function to shortlist the current candidate
+function shortlistCandidate() {
+  const candidate = candidates[currentCandidateIndex];
+  console.log('Candidate shortlisted:', candidate.name);
+  alert(`Candidate ${candidate.name} shortlisted for the final stage.`);
+  // Move to the next candidate
+  currentCandidateIndex++;
+  if (currentCandidateIndex < candidates.length) {
+    loadNextCandidate();
+    document.getElementById('statusMessage').textContent = ""; // Clear status message
+  } else {
+    alert("All candidates reviewed."); // Alert when all candidates are reviewed
+    document.getElementById('application').innerHTML = ""; // Clear application details
+    document.getElementById('statusMessage').textContent = ""; // Clear status message
+    document.getElementById('shortlistButton').disabled = true; // Disable shortlist button
+  }
+}
+
+// Initialize by loading the first candidate's details
+loadNextCandidate();
+
+  </script>
+</body>
+</html>
+
+

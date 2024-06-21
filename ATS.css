@@ -1,0 +1,363 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+.nav {
+    background-color: #333; /* Dark background color */
+    padding: 10px;
+    text-align: center;
+}
+
+.nav p {
+    display: inline-block; /* Display links horizontally */
+    margin: 0;
+    padding: 0 10px;
+}
+
+.nav a {
+    color: #fff; /* White text color */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 16px;
+}
+
+.nav a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.welcome{
+    margin-left: 250px;
+}
+h1, h2, h3 {
+    color: #333;
+}
+.h2{
+    margin-left: 200px;
+}
+#candidate-section{
+    margin-left: 425px;
+}
+#coordinator-section{
+    margin-left: 550px;
+    
+}
+#job-posting-form {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 550px;
+}
+.signup-form {
+    list-style: none;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px;
+    width: 550px;
+    border-radius: 8px;
+    margin-left: 150px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#login-signup-form h2 {
+    list-style: none;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+label {
+    display: inline-block;
+    margin-right: 15px;
+    margin-bottom: 10px; /* Adjust spacing between labels */
+    vertical-align: top; /* Align labels at the top */
+    width: auto; /* Ensures labels take minimum necessary width */
+  }
+#login-signup-form form {
+    display: flex;
+    flex-direction: column;
+    margin-right: -30px;
+}
+
+#login-signup-form label {
+    font-weight: bold;
+}
+/* Add some basic styling to the form elements */
+label {
+    display: flexbox;
+    margin-bottom: 10px;
+  }
+#login-signup-form input[type="text"],
+#login-signup-form input[type="email"],
+#login-signup-form input[type="password"]{
+    margin-top: 15px;
+    font-size: smaller;
+
+}
+#login-signup-form input[type="radio"] {
+    display: inline-block;
+}
+
+#login-signup-form button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    margin-top: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+#login-signup-form button:hover {
+    background-color: #0056b3;
+}
+/*-----------------------------------Candidate portal css--------------------------------------*/
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #333;
+}
+
+#steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.step {
+    flex: 1;
+    padding: 10px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    text-align: center;
+    cursor: pointer;
+}
+
+.step.active {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+#content {
+    border-top: 2px solid #ccc;
+    padding-top: 20px;
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/*-----------------------------------Coordinator portal css--------------------------------------*/
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.employer-section{
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+    margin-right: auto;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+form {
+    margin-top: 10px;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#job-list {
+    border: 1px solid #ccc;
+    padding: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+/*---------------------------------------------------r1 form--------------------------------------------------------------*/
+
+/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.content-section {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-container {
+    margin-bottom: 15px;
+}
+
+.input-container input[type="text"],
+.input-container textarea {
+    width: calc(100% - 10px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.input-container textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.question {
+    margin-bottom: 15px;
+}
+
+.question label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.question input[type="text"] {
+    width: calc(100% - 30px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.question input[type="checkbox"] {
+    margin-left: 10px;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+

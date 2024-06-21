@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employer</title>
+    <link rel="stylesheet" href="ATS.css">
+</head>
+<body>
+    <div class="nav">
+        <p><a href="ATS.html">Home</a></p>
+        <p><a href="candidate.html">Candidate</a></p>
+        <p><a href="coordinator.html">Coordinator</a></p>
+        <p><a href="recruiter.html">Recruiter</a></p>
+        <p><a href="employer.html">Employer</a></p>
+
+    </div>
+    <section id="coordinator-section">
+        <h2>Employer Dashboard</h2>
+        <button id="create-job-posting-btn">Create Job Posting</button>
+        <div id="job-posting-form" style="display: none;">
+            <h3>Create Job Posting</h3>
+            <form id="job-posting-form">
+                <label for="job-title">Job Title:</label>
+                <input type="text" id="job-title" name="job-title" required><br>
+                
+                <label for="job-description">Job Description:</label><br>
+                <textarea id="job-description" name="job-description" rows="4" cols="50" required></textarea><br>
+                
+                <label for="job-requirements">Job Requirements:</label><br>
+                <textarea id="job-requirements" name="job-requirements" rows="4" cols="50" required></textarea><br>
+                
+                <label for="job-location">Location:</label>
+                <input type="text" id="job-location" name="job-location" required><br>
+                
+                <label for="job-salary">Salary:</label>
+                <input type="text" id="job-salary" name="job-salary"><br>
+                
+                <label for="application-deadline">Application Deadline:</label>
+                <input type="date" id="application-deadline" name="application-deadline" required><br>
+                
+                <button type="submit">Next Step</button>
+            </form>
+        </div>
+    </section>
+    <div id="completeForm" class="content-section">
+        <h2>Complete the R1 Check Form</h2>
+        <form id="r1Form">
+            <label for="r1Check">R1 Check Form:</label>
+            <div class="question">
+                <label for="question1">Question 1:</label>
+                <input type="text" id="question1" name="question1" required>
+                <input type="checkbox" id="correct1" name="correct1">
+                <label for="correct1">Correct</label>
+            </div>
+            
+            <div class="question">
+                <label for="question2">Question 2:</label>
+                <input type="text" id="question2" name="question2" required>
+                <input type="checkbox" id="correct2" name="correct2">
+                <label for="correct2">Correct</label>
+            </div>
+    
+            <div class="question">
+                <label for="question3">Question 3:</label>
+                <input type="text" id="question3" name="question3" required>
+                <input type="checkbox" id="correct3" name="correct3">
+                <label for="correct3">Correct</label>
+            </div>
+    
+            <div class="question">
+                <label for="question4">Question 4:</label>
+                <input type="text" id="question4" name="question4">
+                <input type="checkbox" id="correct4" name="correct4">
+                <label for="correct4">Correct</label>
+            </div>
+    
+            <div class="question">
+                <label for="question5">Question 5:</label>
+                <input type="text" id="question5" name="question5">
+                <input type="checkbox" id="correct5" name="correct5">
+                <label for="correct5">Correct</label>
+            </div>
+    
+    
+            <button type="submit">Submit Application<a href="coordinator.html"></a></button>
+        </form>
+    </div>
+</div>
+</div>
+<script>
+
+
+// Event listener for showing the job posting form for coordinators
+const createJobPostingBtn = document.getElementById('create-job-posting-btn');
+const jobPostingForm = document.getElementById('job-posting-form');
+
+createJobPostingBtn.addEventListener('click', () => {
+    jobPostingForm.style.display = 'block';
+});
+//r1 form///
+// Function to generate random questions for R1 check form
+function generateRandomQuestions() {
+    const questions = [
+        "What is your approach to solving technical problems?",
+        "How do you handle tight deadlines?",
+        "Describe a project you are proud of and your role in it.",
+        "What are your strengths and weaknesses?",
+        "How do you stay updated with industry trends?"
+    ];
+
+    // Shuffle questions to randomize
+    questions.sort(() => Math.random() - 0.5);
+
+    const form = document.getElementById('r1Form');
+    form.innerHTML = ''; // Clear previous content
+
+    questions.slice(0, 5).forEach((question, index) => {
+        const questionDiv = document.createElement('div');
+        questionDiv.classList.add('question');
+        questionDiv.innerHTML = `
+            <label for="question${index + 1}">Question ${index + 1}:</label>
+            <input type="text" id="question${index + 1}" name="question${index + 1}" value="${question}" required>
+            <input type="checkbox" id="correct${index + 1}" name="correct${index + 1}">
+            <label for="correct${index + 1}">Correct</label>
+        `;
+        form.appendChild(questionDiv);
+    });
+
+    const submitButton = document.createElement('button');
+    submitButton.type = 'submit';
+    submitButton.textContent = 'Submit Application';
+    form.appendChild(submitButton);
+}
+
+// Function to handle job posting form submission
+document.getElementById('job-posting-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Gather job posting form data
+    const jobTitle = document.getElementById('job-title').value;
+    const jobDescription = document.getElementById('job-description').value;
+    const jobRequirements = document.getElementById('job-requirements').value;
+    const jobLocation = document.getElementById('job-location').value;
+    const jobSalary = document.getElementById('job-salary').value;
+    const applicationDeadline = document.getElementById('application-deadline').value;
+
+    // Dummy action (console log)
+    console.log('Job posted:', {
+        title: jobTitle,
+        description: jobDescription,
+        requirements: jobRequirements,
+        location: jobLocation,
+        salary: jobSalary,
+        deadline: applicationDeadline
+    });
+
+    // Display R1 check form after job posting
+    document.getElementById('completeForm').style.display = 'block';
+    generateRandomQuestions();
+
+    // Optional: Clear job posting form fields after submission
+    document.getElementById('job-title').value = '';
+    document.getElementById('job-description').value = '';
+    document.getElementById('job-requirements').value = '';
+    document.getElementById('job-location').value = '';
+    document.getElementById('job-salary').value = '';
+    document.getElementById('application-deadline').value = '';
+});
+
+// Function to handle R1 check form submission
+document.getElementById('r1Form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Dummy action (console log)
+    console.log('R1 check form submitted:', this);
+    
+    // Clear form after submission (for demo)
+    this.reset();
+
+    //hide after submission
+    document.getElementById('completeform').style.display = 'none';
+});
+
+
+             
+    </script>
+
+    <style>
+         @media only screen and (max-width: 768px) {
+    .container {
+        padding: 5px;
+    }
+
+    .nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav a {
+        margin: 5px;
+    }
+
+    #coordinator-section,
+    #completeForm {
+        padding: 10px;
+    }
+
+    #job-posting-form label,
+    #job-posting-form input,
+    #job-posting-form textarea,
+    #completeForm label,
+    #completeForm input[type="text"],
+    #completeForm input[type="checkbox"] {
+        width: calc(100% - 20px);
+        padding: 8px;
+        margin-bottom: 8px;
+        font-size: 14px;
+    }
+
+    #job-posting-form button[type="submit"],
+    #completeForm button[type="submit"] {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+    </style>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Portal</title>
+    <link rel="stylesheet" href="ATS.css">
+</head>
+<body>
+    <div class="nav">
+        <p><a href="ATS.html">Home</a></p>
+        <p><a href="candidate.html">Candidate</a></p>
+        <p><a href="coordinator.html">Coordinator</a></p>
+        <p><a href="recruiter.html">Recruiter</a></p>
+        <p><a href="employer.html">Employer</a></p>
+    </div>
+    <div class="container">
+        <h1>Job Application Platform</h1>
+        <div id="steps">
+            <div class="step active">1. Create an account</div>
+            <div class="step">2. View job postings and apply</div>
+            <div class="step">3. Upload your resume</div>
+        </div>
+        <div id="content">
+            <div id="createAccount" class="content-section active">
+                <h2>Create an Account</h2>
+                <form id="accountForm">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <br>
+                    <button type="button" onclick="nextStep()">Next</button>
+                </form>
+            </div>
+            <div id="viewJobs" class="content-section">
+                <h2>View Jobs and Apply</h2>
+                <ul id="jobListings">
+                    <!-- Dynamic job postings will be inserted here -->
+                </ul>
+                <button type="button" onclick="nextStep()">Next</button>
+            </div>
+            <div id="uploadResume" class="content-section">
+                <h2>Upload Your Resume</h2>
+                <form id="resumeForm">
+                    <label for="resume">Upload Resume:</label>
+                    <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+                </form>
+                <button type="submit">Submit Application</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="ATS.js"></script>
+    <script>
+        let currentStep = 1;
+
+        function nextStep() {
+            const steps = document.querySelectorAll('.step');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            // Hide current step and content section
+            steps[currentStep - 1].classList.remove('active');
+            contentSections[currentStep - 1].classList.remove('active');
+
+            // Increment current step
+            currentStep++;
+
+            // Show next step and content section
+            steps[currentStep - 1].classList.add('active');
+            contentSections[currentStep - 1].classList.add('active');
+            
+            // Generate job listings if currently on the "View Jobs" step
+            if (currentStep === 2) {
+                generateJobListings();
+            }
+        }
+
+        // Function to simulate generating job listings
+        function generateJobListings() {
+            const jobListings = [
+                { title: "Frontend Developer", company: "Tech Solutions Inc.", location: "Remote", id: 1 },
+                { title: "Backend Developer", company: "Software Innovations Ltd.", location: "New York, NY", id: 2 },
+                { title: "Fullstack Developer", company: "Web Applications Co.", location: "San Francisco, CA", id: 3 }
+                // Add more job listings as needed
+            ];
+
+            const jobListingsContainer = document.getElementById('jobListings');
+
+            // Clear previous job listings
+            jobListingsContainer.innerHTML = '';
+
+            // Generate HTML for each job listing
+            jobListings.forEach(job => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <div>
+                        <h3>${job.title}</h3>
+                        <p><strong>Company:</strong> ${job.company}</p>
+                        <p><strong>Location:</strong> ${job.location}</p>
+                        <button onclick="applyJob(${job.id})">Apply</button>
+                    </div>
+                `;
+                jobListingsContainer.appendChild(li);
+            });
+        }
+
+        // Function to simulate applying for a job
+        function applyJob(jobId) {
+            const job = findJobById(jobId);
+            if (job) {
+                alert(`You have applied for the job: ${job.title} at ${job.company}`);
+                // Here you can add further logic for handling the application process
+            }
+        }
+
+        // Function to find job by ID
+        function findJobById(jobId) {
+            const jobListings = [
+                { title: "Frontend Developer", company: "Tech Solutions Inc.", location: "Remote", id: 1 },
+                { title: "Backend Developer", company: "Software Innovations Ltd.", location: "New York, NY", id: 2 },
+                { title: "Fullstack Developer", company: "Web Applications Co.", location: "San Francisco, CA", id: 3 }
+                // Add more job listings as needed
+            ];
+
+            return jobListings.find(job => job.id === jobId);
+        }
+    </script>
+    <style>
+        @media only screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    #steps {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .step {
+        margin-bottom: 10px;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .nav a {
+        padding: 10px;
+        margin: 5px;
+    }
+
+    #jobListings li {
+        padding: 10px;
+    }
+}
+    </style>
+</body>
+</html>

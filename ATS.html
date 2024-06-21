@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applicant Tracking System</title>
+    <link rel="stylesheet" href="ATS.css">
+</head>
+<body>
+
+    <div class="nav">
+        <p><a href="ATS.html">Home</a></p>
+        <p><a href="candidate.html">Candidate</a></p>
+        <p><a href="coordinator.html">Coordinator</a></p>
+        <p><a href="recruiter.html">Recruiter</a></p>
+        <p><a href="employer.html">Employer</a></p>
+
+    </div>
+           
+    <div class="container">
+        <h1 class="welcome">Welcome to the ATS</h1>
+       
+        <!-- Candidate Section -->
+
+
+        <div class="signup-form">
+            <h2 class="h2">Login or Sign Up</h2>
+            <form id="login-signup-form">
+
+                <label for="first name">Sur Name</label>
+                <input type="First Name" id="fname" name="fname" required>
+                
+                <label for="first name">Given Name</label>
+                <input type="Second Name" id="sname" name="sname" required>
+                
+                <h4>Gender</h4>
+                <label>
+                    <input type="radio" name="gender" value="male">
+                    Male
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="female">
+                    Female
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="other">
+                    Other
+                </label>
+
+                <h4>Coding Languages Known</h4>
+        
+                <label>
+                    <input type="checkbox" name="coding-languages" value="javascript">
+                    JavaScript
+                </label>
+                <label>
+                    <input type="checkbox" name="coding-languages" value="python">
+                    Python
+                </label>
+                <label>
+                    <input type="checkbox" name="coding-languages" value="java">
+                    Java
+                </label>
+                <label>
+                    <input type="checkbox" name="coding-languages" value="csharp">
+                    C#
+                </label>
+                <label>
+                    <input type="checkbox" name="coding-languages" value="csharp">
+                    C++
+                </label>
+                <label>
+                    <input type="checkbox" name="coding-languages" value="csharp">
+                    Django
+                </label>
+               <h4>Preferred roles</h4>
+
+                <label>
+                    <input type="checkbox" name="preferred-role" value="frontend">
+                    Frontend Developer
+                </label>
+                <label>
+                    <input type="checkbox" name="preferred-role" value="backend">
+                    Backend Developer
+                </label>
+                <label>
+                    <input type="checkbox" name="preferred-role" value="fullstack">
+                    Fullstack Developer
+                </label>
+                
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit" id="login-btn">Login/signup</button>
+                
+            </form>
+        </div>
+    </div>
+
+        <section id="candidate-section">
+            <h2>Candidate Dashboard</h2>
+            <div id="profile-info">
+                <h3>Profile Information</h3>
+                <p>Name: John Doe</p>
+                <p>Email: john.doe@example.com</p>
+                <p>Phone: 123-456-7890</p>
+                <!-- Add more fields as needed -->
+            </div>
+            <div id="job-listings">
+                <h3>Job Listings</h3>
+                <!-- Job listings dynamically populated using JavaScript -->
+                <ul id="jobs-list">
+                    <!-- Job postings will be added here -->
+                </ul>
+            </div>
+        </section>
+        
+        
+    </div>
+
+
+
+
+    <script src="ATS.js"></script>
+</body>
+</html>

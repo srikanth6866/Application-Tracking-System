@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Co-ordinator</title>
+    <link rel="stylesheet" href="ATS.css">
+
+</head>
+<body>
+    <div class="nav">
+        <p><a href="ATS.html">Home</a></p>
+        <p><a href="candidate.html">Candidate</a></p>
+        <p><a href="coordinator.html">Coordinator</a></p>
+        <p><a href="recruiter.html">Recruiter</a></p>
+        <p><a href="employer.html">Employer</a></p>
+
+    </div>
+     
+    <div class="coordinator-section">
+        <h1>Job Coordinator Dashboard</h1>
+        
+        <!-- Job Posting Section -->
+        <section id="job-posting-section">
+            <h2>Job Postings</h2>
+            <div id="job-list">
+                <!-- Job listings will be dynamically added here -->
+            </div>
+        </section>
+        
+        <!-- Assign Recruiters Section -->
+        <section id="assign-recruiters-section">
+            <h2>Assign Recruiters</h2>
+            <form id="assign-recruiters-form">
+                <label for="job-select">Select Job:</label>
+                <select id="job-select" name="job-select">
+                    <!-- Job options will be dynamically added here -->
+                    <option value="1">Software Developer</option>
+                    <option value="2">Data Analyst</option>
+                    <option value="3">Marketing Manager</option>
+                    <option value="1">Front-end Developer</option>
+                </select>
+                <label for="recruiter-input">Assign Recruiters:</label>
+                <select id="recruiter-input" name="recruiter-input">
+                    <!-- Recruiter options will be dynamically added here -->
+                </select>
+
+                <button type="submit">Assign</button>
+            </form>
+        </section>
+        
+        <!-- Add R2 Check Form Section -->
+        <section id="add-r2-check-section">
+            <h2>Add R2 Check Form</h2>
+            <form id="add-r2-check-form">
+                <label for="job-select-r2">Select Job:</label>
+                <select id="job-select-r2" name="job-select-r2">
+                    <!-- Job options will be dynamically added here -->
+                    <option value="1">Software Developer</option>
+                    <option value="2">Data Analyst</option>
+                    <option value="3">Marketing Manager</option>
+                    <option value="1">Front-end Developer</option>
+                </select>
+                <button type="submit">Add R2 Check Form</button>
+            </form>
+        </section>
+    </div>
+
+
+    <script>
+    // Dummy data for demonstration
+const jobs = [
+    { id: 1, title: "Software Developer", company: "Tech Solutions Inc." },
+    { id: 2, title: "Data Analyst", company: "Data Insights Co." },
+    { id: 3, title: "Marketing Manager", company: "Global Marketing Group" },
+    { id: 4, title: "Front-end Developer", company: "Global Marketing Group" }
+
+];
+
+const recruiters = [
+    "John Doe",
+    "Jane Smith",
+    "Michael Johnson",
+    "Emily Brown"
+];
+
+// Function to populate job listings
+function populateJobListings() {
+    const jobListDiv = document.getElementById('job-list');
+    jobListDiv.innerHTML = ''; // Clear previous content
+
+    jobs.forEach(job => {
+        const jobListing = document.createElement('div');
+        jobListing.classList.add('job-item');
+        jobListing.innerHTML = `
+            <h3>${job.title}</h3>
+            <p><strong>Company:</strong> ${job.company}</p>
+            <p><strong>Job ID:</strong> ${job.id}</p>
+        `;
+        jobListDiv.appendChild(jobListing);
+    });
+}
+
+// Function to populate recruiter options in select dropdown
+function populateRecruiterOptions() {
+    const recruiterSelect = document.getElementById('recruiter-input');
+    recruiters.forEach(recruiter => {
+        const option = document.createElement('option');
+        option.value = recruiter;
+        option.textContent = recruiter;
+        recruiterSelect.appendChild(option);
+    });
+}
+
+// Populate job listings and recruiter options on page load
+document.addEventListener('DOMContentLoaded', function() {
+    populateJobListings();
+    populateRecruiterOptions();
+});
+
+// Event listener for assigning recruiters
+document.getElementById('assign-recruiters-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const jobId = document.getElementById('job-select').value;
+    const recruiter = document.getElementById('recruiter-input').value;
+    
+    // Dummy action (console log)
+    console.log(`Recruiter ${recruiter} assigned to job ${jobId}`);
+    alert(`Recruiter ${recruiter} assigned to job ${jobId}`);
+
+    // Clear input fields (for demo)
+    document.getElementById('recruiter-input').value = '';
+});
+
+// Event listener for adding R2 check form
+document.getElementById('add-r2-check-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const jobId = document.getElementById('job-select-r2').value;
+    
+    // Dummy action (console log)
+    console.log(`R2 check form added for job ${jobId}`);
+    alert(`R2 check form added for job ${jobId}`);
+});
+
+
+         
+
+
+    </script>
+
+    
+</body>
+</html>
